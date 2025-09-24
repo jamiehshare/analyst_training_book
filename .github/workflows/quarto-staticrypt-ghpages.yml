@@ -29,8 +29,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       PROTECTED_DIR: _book
-      PASSWORD: samy2025
-      # PASSWORD: ${{ secrets.YOUR_SECRET }}
+      PASSWORD: ${{ secrets.WEB_PASSWORD }}
     steps:
       - name: Check PASSWORD variable
         run: |
