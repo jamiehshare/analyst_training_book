@@ -1,0 +1,149 @@
+---
+title: "EndpointR Dos and Don'ts"
+format: 
+  html:
+    number-sections: false
+---
+
+# Introduction
+
+This document covers some dos and don'ts of accessing LLMs through `EndpointR` at SAMY. LLMs are powerful tools, but they're not always the right tool for every job. I'd consider them as expensive consultants - great for complex reasoning tasks, but overkill for things like simple pattern matching.
+
+> **Key Principle**: Use LLMs for what humans are good at, use traditional methods for what computers are good at.
+
+:::{.callout-note collapse="false" style="background-color: #ffffff;"}
+## Focusing on LLM providers
+
+This document focusses on the major LLM providers inference part of `EndpointR` (i.e. not utilising pre-trained models such as our Peaks + Pits model, Document-level sentiment models, or embedding models)
+:::
+
+# What is EndpointR
+
+The `EndpointR` package is an interface that connects our R session directly to powerful machine learning (ML) models (such as certain LLMs). **`EndpointR` is not a model itself**.
+
+It provides a secure and standardised toolkit for communicating with AI services from providers such as OpenAI and Hugging Face. The package is designed to abstract away the complex and sensitive background tasks (such as managing API keys and formatting web requests), allowing us to focus on the application of these models to our datasets and to answering research questions. 
+
+So if you use `EndpointR` in a project, in reality you have used a specific model (such as `gpt-4.1-nano`) to perform the core task, `EndpointR` is just a tool used to access this model. This is important to remember when being transparent to clients.
+
+# Key Considerations Before Using LLMs
+
+LLMs are not free, nor are they quick. We do not want to rely on them for everything, and we want to use them mindfully. Before reaching for LLMs, work through these four key questions:
+
+##### 1. Is this task suitable for LLMs?
+
+LLMs are best used on unstructured data (such as text). If you have tabular data full of numbers that need to be analysed, you almost certainly do not want to be using LLMs - use traditional ML/statistics instead.
+
+In addition, if the output is a number (for example, we need to provide a "confidence score" or "likelihood"[^1] of something) then LLMs are also not a suitable option- and you'll want to develop an approach with the data science team.
+
+[^1]: In statistics, terms like confidence, probability, and likelihood all have specific definitions. Here, I'm using them in the "general everyday usage" meaning, as that's what is likely to come from a client.
+
+##### 2. Can simpler methods work?
+
+Often tasks can be performed with simple NLP approaches too. If we need to find mentions of Microsoft, it's much simpler, quicker, and cheaper to do a search for instances of "Microsoft", "MSFT", "microsoft" etc than powering up a LLM to identify these mentions (however, if we wanted something nuanced such as sentiment associated only to Microsoft, then that's when the LLM spidey senses should be tingling). 
+
+An additional bonus of simpler methods is that they are much easier to interpret and explain to a client. Additionally, simpler methods often involve some more upfront cleaning steps and data refinement, with the benefit of this enabling better understanding of the data itself.
+
+##### 3. Does it need the full dataset?
+
+A solid rule of thumb is to consider whether an analysis looks at a single post in isolation, or in comparison to all other posts.
+
+For example, to determine whether a post contains sarcasm, you do not need to know anything about any other post in the dataset. Similarly, to understand whether a post mentions a certain attribute, you do not need to look at other posts. 
+
+Post-Independent Analysis (LLMs *can* be suitable):
+
+Things like
+* Sentiment of individual posts
+* Detecting sarcasm
+* Classifying into predefined categories
+
+However, in other cases an analysis **requires** information on the full dataset.
+
+Dataset-Wide Analysis (Don't use LLMs):
+
+Things like
+* Topic modelling/latent theme discovery
+* Understanding trends **across** posts
+* Clustering similar content
+
+Example: If one post mentions "UI", is that a topic? What about if 100 posts mention it? 1000? You need the full dataset perspective to infer information from a single post.
+
+##### 4. What's the scale?
+
+LLMs aren't free or fast. Always start with a small sample of data to refine a prompt. This could be ~10-100 posts that you have manually read and labelled yourself. Then you use this to update your prompt to make sure it outputs what you would expect. 
+
+:::{.callout-tip collapse="false"}
+## Filter before you send
+
+Don't send irrelevant posts to expensive LLMs. If you want sentiment towards a specific brand, filter to posts that actually mention that brand first. Why pay to analyse 10k posts when only 1k mention your target? 
+
+**Common filtering approaches:**
+
+* Brand mentions: Filter to posts containing brand names
+* Relevant topics: Use keyword searches to find posts about specific products/issues
+* Time periods: Focus on posts around key events (launches, crises, campaigns)
+:::
+
+**If you need >10k posts analysed, speak to Data Science** - direct LLM usage becomes impractical and other approaches are likely needed.
+
+# When to use LLMs
+
+## Classify data into **pre-defined categories**
+
+When you already know what categories you're looking for:
+
+* A client launches a new smartphone and wants mentions classified into categories like price, design, or battery life to see what people are talking about most.
+
+:::{.callout-tip collapse="false"}
+## Always link to client need
+
+Note these pre-defined categories do not need to come from the client directly, they can be from SAMY desk research- but they should be run by the client first to make sure they are suitable for what the client wants/expects.
+:::
+
+## The task requires deep language understanding
+
+Sometimes we need to grasp nuances, context, and semantics in human language. This could be more "difficult" research asks, such as identifying brand love drivers, indicators of churn etc
+
+:::{.callout-note collapse="false"}
+## Get a proper definition!
+
+It is important to get the definition of a phenomena of interest from a client. How one client defines something like "Brand Love" may be different to how a different client defines it. This is especially important if the phenomena of interest we are measuring is client specific jargon.
+:::
+
+# Practical Workflow
+
+1. Exploratory Phase: Test with ~100 manually labelled posts to refine prompts
+2. Labelling Phase: Use refined LLM on 5-10k posts
+3. Scale Phase: DS team uses labelled data to fine-tune a smaller, faster model for full dataset inference.
+
+**Important:** Step 3 is often the most time-intensive and complex part of the process. Fine-tuning and distilling models can take weeks, not days. Sometimes this step isn't practical at all - especially for highly nuanced tasks where traditional ML models can't match LLM performance.
+
+For projects requiring step 3, plan for significant data science time upfront. Don't assume steps 1-2 are the bottleneck - the real complexity often lies in creating scalable solutions.
+
+Sometimes this third step just isn't practical though, especially if the task is especially difficult. In these cases the projects should be set up with enough data science time to fully approach the problem. 
+
+This workflow illustrates a key principle: **LLMs and traditional ML often work best together**. LLMs provide quick wins for complex reasoning tasks, but traditional ML models offer advantages for large-scale deployment:
+
+* **Model Transparency:** Traditional models are easier to interpret and explain to clients
+* **Data Analysis Focus:** Traditional ML emphasizes understanding and refining the dataset, ensuring more reliable insights
+* **Scale and Cost:** Once trained, traditional models are faster and cheaper for large datasets
+
+The goal isn't choosing LLM *or* traditional ML - it's using each where they excel.
+
+This quote from the authors of a new (2024) LLM called `ModernBERT` illustrates this when discussing using generative AI tools (such as ChatGPT) for certain tasks:
+
+> Of course, the open-ended capabilities of these giant generative models mean that you can, in a pinch, press them into service for non-generative or discriminative tasks, such as classification. This is because you can describe a classification task in plain English and ... just ask the model to classify. But while this workflow is great for prototyping, you don’t want to pay prototype prices once you’re in mass production.
+
+# Remember: LLMs Are Just a Tool
+
+The output of using `EndpointR` is most often a new column(s) on the dataset. The real useful work is interpreting results in business context. Knowing that 30% of posts show "loyalty" language is just the start - what does this actually mean for the client?
+
+# Conclusion
+
+Success with LLMs comes down to asking the right questions before you start:
+
+* Is this suitable for LLMs? (unstructured text, complex reasoning)
+* Can simpler methods work? (try regex first)
+* Does it need the full dataset? (use topic modelling instead)
+* What's the scale? (consider cost and speed)
+
+When in doubt, test small, validate results, and don't hesitate to speak to Data Science for large-scale applications.

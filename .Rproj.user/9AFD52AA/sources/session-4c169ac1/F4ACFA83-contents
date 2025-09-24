@@ -8,7 +8,7 @@ book:
     - index.qmd
     - curriculum.qmd
     - analyst_training_materials.qmd
-    - EndpointR_dos_Donts.qmd
+    - EndpointR_dos_donts.qmd
 
 bibliography: references.bib
 

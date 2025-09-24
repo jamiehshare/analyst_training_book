@@ -80,8 +80,8 @@
     ]
   },
   {
-    "objectID": "EndpointR_dos_Donts.html",
-    "href": "EndpointR_dos_Donts.html",
+    "objectID": "EndpointR_dos_donts.html",
+    "href": "EndpointR_dos_donts.html",
     "title": "EndpointR Dos and Don’ts",
     "section": "",
     "text": "Introduction\nThis document covers some dos and don’ts of accessing LLMs through EndpointR at SAMY. LLMs are powerful tools, but they’re not always the right tool for every job. I’d consider them as expensive consultants - great for complex reasoning tasks, but overkill for things like simple pattern matching.",
@@ -90,8 +90,8 @@
     ]
   },
   {
-    "objectID": "EndpointR_dos_Donts.html#classify-data-into-pre-defined-categories",
-    "href": "EndpointR_dos_Donts.html#classify-data-into-pre-defined-categories",
+    "objectID": "EndpointR_dos_donts.html#classify-data-into-pre-defined-categories",
+    "href": "EndpointR_dos_donts.html#classify-data-into-pre-defined-categories",
     "title": "EndpointR Dos and Don’ts",
     "section": "Classify data into pre-defined categories",
     "text": "Classify data into pre-defined categories\nWhen you already know what categories you’re looking for:\n\nA client launches a new smartphone and wants mentions classified into categories like price, design, or battery life to see what people are talking about most.\n\n\n\n\n\n\n\nAlways link to client need\n\n\n\n\n\nNote these pre-defined categories do not need to come from the client directly, they can be from SAMY desk research- but they should be run by the client first to make sure they are suitable for what the client wants/expects.",
@@ -100,8 +100,8 @@
     ]
   },
   {
-    "objectID": "EndpointR_dos_Donts.html#the-task-requires-deep-language-understanding",
-    "href": "EndpointR_dos_Donts.html#the-task-requires-deep-language-understanding",
+    "objectID": "EndpointR_dos_donts.html#the-task-requires-deep-language-understanding",
+    "href": "EndpointR_dos_donts.html#the-task-requires-deep-language-understanding",
     "title": "EndpointR Dos and Don’ts",
     "section": "The task requires deep language understanding",
     "text": "The task requires deep language understanding\nSometimes we need to grasp nuances, context, and semantics in human language. This could be more “difficult” research asks, such as identifying brand love drivers, indicators of churn etc\n\n\n\n\n\n\nGet a proper definition!\n\n\n\n\n\nIt is important to get the definition of a phenomena of interest from a client. How one client defines something like “Brand Love” may be different to how a different client defines it. This is especially important if the phenomena of interest we are measuring is client specific jargon.",
@@ -110,8 +110,8 @@
     ]
   },
   {
-    "objectID": "EndpointR_dos_Donts.html#footnotes",
-    "href": "EndpointR_dos_Donts.html#footnotes",
+    "objectID": "EndpointR_dos_donts.html#footnotes",
+    "href": "EndpointR_dos_donts.html#footnotes",
     "title": "EndpointR Dos and Don’ts",
     "section": "",
     "text": "In statistics, terms like confidence, probability, and likelihood all have specific definitions. Here, I’m using them in the “general everyday usage” meaning, as that’s what is likely to come from a client.↩︎",
