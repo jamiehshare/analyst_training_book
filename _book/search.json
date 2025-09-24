@@ -1,0 +1,122 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "DS&RI Resources",
+    "section": "",
+    "text": "Introduction\nThis e-book aims to be a resource for analysts (and data scientists starting their journey at SAMY) to be a bit more familiar with some parts of R that will help them in their data to day analyses.\nCurrently you can see some tips (with links) on getting started with R, as well as some simple code and explanation on some data wrangling concepts, and finally some best practices for using EndpointR.\n\n\nPrevious resources\nIn the past, the DS team have created other resources that aim to help anyone at SAMY understand different aspects of data science, coding, analyses slightly better. However, these resources have often fallen short of utility in that they either get lost in the ether/slack messages, or vary their focus/audience too much.\nThese resources have included:\n\nSlack Overflow - A collection of commonly asked questions (and answers) from the Slack Overflow slack channel\nThe Capture Cookbook - A guide for best practices relating to data visualisation\nData Science Handbook - A handbook outlining the methods case studies, and best practices that aim to guide our approach to data science at SAMY (the scope of this leans more towards the technical side of data science, but is still a resource that everyone is welcome to peruse).\n\nJust looking at these you can see how even the aesthetics have been mis-match as the DS team at SAMY have evolved from a small team at SHARE, to being part of Capture, to now being a global resource at SAMY.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
+    ]
+  },
+  {
+    "objectID": "curriculum.html",
+    "href": "curriculum.html",
+    "title": "2  Learning R",
+    "section": "",
+    "text": "SAMY Syllabus\nThe Data Science team, whilst being well-versed in R and coding, unfortunately do not have the time or resources to be teachers of R. Thankfully, there are many wonderful resources online for learning or to upskill yourself in R.\nHowever, that is not to say that we cannot help you if you become stuck with anything R related. This is especially relevant with our own analytical suite that we have developed- you won’t be able to find much help online because no one else can use it!\nTo get started, we strongly recommend checking out the RStudio Education platform, which provides 6 good options for beginning to learn R, based on your background and interests.\nThe data science team has put together this suggested curriculum for those who want to upskill their R skills.\nThis is by no means an exhaustive list, and these are purposely vague in that not one single course will cover all of these, and they are skills that can and should be honed over time and through experience. Whilst not all of these skills will be needed day to day (our suite abstracts away a lot of the core R functionality to help lower the barrier to entry), having knowledge of what is on this list will help you greatly going forward in your career.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Learning R</span>"
+    ]
+  },
+  {
+    "objectID": "curriculum.html#core-skills",
+    "href": "curriculum.html#core-skills",
+    "title": "2  Learning R",
+    "section": "Core Skills",
+    "text": "Core Skills\n\nFoundation Level\n\nDevelopment Environment\n\nIDEs (Rstudio setup and familiarity)\nProject-centric workflow\nPackages & Libraries (installation, using)\n\nProgramming Basics\n\nLearning from documentation / how to get help\nVariables\nArithmetic operators\nData Frames, Lists, Vectors\n\nGetting Data In/Out\n\nReading & Writing files - .xslsx, .csv\nFilesystem basics\n\n\n\n\nFunctional Level\n\nProgramming with Data\n\nWrangling basics (reshaping, tidying)\nAggregation - group summary statistics\nBasic data cleaning\nDates and times\n\nStatistics & Visualisation\n\nDescriptive statistics\nDistributions\nElementary plots using ggplot2 - line, bars, scatter etc\n\nOur tools\n\nSHARE/SAMY packages (core functionality)\n\n\n\n\nProficient level\n\nCommunication\n\nMarkdown (markdown, RMarkdown, Quarto)\nLiterature programming (Quarto notebooks)\nEnhanced visualisation techniques (theming, styling in ggplot2)\n\nAdvanced topics\n\nBasic modelling\nDatabases and SQL\nVersion control (git, github)\nWorking with big(ish) data - Arrow/Parquet, DuckDB, walk vs map",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Learning R</span>"
+    ]
+  },
+  {
+    "objectID": "curriculum.html#videos",
+    "href": "curriculum.html#videos",
+    "title": "2  Learning R",
+    "section": "Videos",
+    "text": "Videos\n\nNHS-R Community YouTube\n\nNHS-R Intro to R and RStudio\n\nJulia Silge YouTube\nDavid Robinson YouTube",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Learning R</span>"
+    ]
+  },
+  {
+    "objectID": "curriculum.html#books",
+    "href": "curriculum.html#books",
+    "title": "2  Learning R",
+    "section": "Books",
+    "text": "Books\n\nHands-on Programming in R #programming\nR For Data Science (R4DS)\nTidyText\nWhat they Forgot to Teach you about R (WTF) Book",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Learning R</span>"
+    ]
+  },
+  {
+    "objectID": "curriculum.html#websites",
+    "href": "curriculum.html#websites",
+    "title": "2  Learning R",
+    "section": "Websites",
+    "text": "Websites\n\nR-Graph Gallery\nR Bloggers\nCapture Visualisation Cookbook\nShare Data Science Handbook",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Learning R</span>"
+    ]
+  },
+  {
+    "objectID": "curriculum.html#packages-libraries",
+    "href": "curriculum.html#packages-libraries",
+    "title": "2  Learning R",
+    "section": "Packages & Libraries",
+    "text": "Packages & Libraries\n\ndplyr\ntidyr\npurrr\nggplot2",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Learning R</span>"
+    ]
+  },
+  {
+    "objectID": "analyst_training_materials.html",
+    "href": "analyst_training_materials.html",
+    "title": "Simple Wrangling 101",
+    "section": "",
+    "text": "Introduction\nThis document will show at a high level some common code that is useful for managing and wrangling data within RStudio.\nFor reference, we will assume that the data files are saved as Excel files (however we actually highly recommend saving social listening exports as CSVs).\n\n\nLoad in data\n\nRead in individual file:\n\n\nCode\nlibrary(tidyverse)\nlibrary(readxl)\n\nmy_data &lt;- read_excel(\"./PATH_TO_DATA/name_of_excel_file.xlsx\")\n\n## or you may have a csv\n\nmy_data &lt;- read_csv(\"./PATH_TO_DATA/name_of_csv_file.csv\")\n\n\n\n\nRead in multiple files at once:\n\n\n\n\n\n\nSlack Overflow already answers this question\n\n\n\n\n\nCheck it out here\n\n\n\nWhen you have multiple files with the same structure (same columns) that need combining, you can read them all in at once rather than doing it manually one by one. This is the case when we read in multiple exported files from the same social listening query.\nThe logic is straightforward: get a list of all the file paths, read each file, then stack them together into one dataset.\n\nStep 1: Get the file paths\n\n\nCode\ndirectory_path &lt;- (\"~/Google Drive/Shared drives/SC -  Capture Intelligence/US Projects/Microsoft/829 - Microsoft Perceptions - Peak & Pits/Data/Copilot Data/Copilot All Up Data/\")\n\npaths &lt;- list.files(path = directory_path, full.names = TRUE, recursive = TRUE, all.files = TRUE)\n\n\n\n\n\n\n\n\nThe list.files() function\n\n\n\n\n\nThe recursive = TRUE argument means R will look inside any subfolders too. If your files are all in one folder, you might want recursive = FALSE instead to be safe\n\n\n\n\n\nStep 2: Read all the files\n\n\nCode\nall_files &lt;- map(paths, read_excel)\n\n\nThe map() function applies the same operation to each item in a list. Here, it’s applying read_excel() to each file path, reading all your files in one go. Think of it as a more efficient way of writing multiple read_excel() commands.\n\n\nStep 3: Stack them together\n\n\nCode\nraw_df &lt;- all_files %&gt;% \n  reduce(bind_rows)\n\n\nAt this point, all_files contains all your data, but as separate datasets in a list. The reduce()function combines them using bind_rows(), which stacks datasets on top of each other (assuming they have the same column structure).\n\n\n\n\nJoining datasets\nJoining is used when you have two datasets that share a common identifier[s] and we want to combine information from both. This is most commonly something like universal_message_id. If you are familiar with SQL, these work very similarly to SQL joins.\nThis can broadly be considered as “adding extra columns to our existing data”, and in some special situations also leads to increasing the number of rows too.\nA common example of using this in our work is when we have social posts from Sprinklr in one dataframe, and then the scores/results of a model (say our Spam classifier model) in another dataframe, and we want to append these spam classification scores to the data from the Sprinklr export.\nThere are few different flavours of joins, and I think this resource by Gauden Buie is absolutely brilliant in explaining how we can understand what they do - read it! I have unashamedly adapted the below from his document\n\nLeft Join - Keep everything from the main dataset\n\nAll rows from x where there are matching values in y, and all columns from x and y.\n\nA left join keeps all rows from your main dataset and adds matching information from the second dataset. If there’s no match, you’ll get NA values. This is the most common join - use it when you want to enrich your main dataset without losing any of your original data.\n\n\n\nCode\ncombined_data &lt;- main_dataset %&gt;% \n  left_join(additional_data, by = \"shared_column\")\n\n\n\n\nFull Join - Keep everything from both datasets\n\nAll rows and all columns from both x and y. Where there are not matching values, returns NA for the one missing.\n\nA full join keeps all rows from both datasets, filling in NA where there are no matches. Use this when both datasets are equally important and you don’t want to lose information from either.\n\n\n\nCode\ncombined_data &lt;- dataset_a %&gt;% \n  full_join(dataset_b, by = \"shared_column\")\n\n\n\n\n\n\n\n\nThe joining column\n\n\n\n\n\nThe by = \"column_name\" tells R which column to use for matching. If the columns have different names, use by = c(\"col_a\" = \"col_b\").\n\n\n\n\n\n\nCombining datasets (stacking and side-by-side)\nCombining is different from joining - it’s about physically putting datasets together without needing a shared identifier.\n\nStacking datasets (adding rows)\nUse this when you have the same type of data from different sources that you want in one dataset:\n\n\nCode\nstacked_data &lt;- bind_rows(dataset_a, dataset_b, dataset_c)\n\n\n\n\n\n\n\n\nBeware of duplicates\n\n\n\nThis does not consider duplicates though- so if you have the same post in multiple datasets you will end up with multiple instances of this data point!\n\n\n\n\nSide-by-side datasets (adding columns)\nUse this when you have different information about the same observations, in the same order:\n\n\nCode\nwider_data &lt;- bind_cols(dataset_a, dataset_b)\n\n\n\n\n\n\n\n\nBe careful with bind_cols()\n\n\n\nThis assumes the rows are in exactly the same order in both datasets. If they’re not, your data will be mismatched! Usually safer to use a join instead.\n\n\n\n\n\nThe key difference:\n\nJoining makes your data “fuller” by adding related information based on shared identifiers\nBinding rows makes your data “longer” by adding more observations of the same type\nBinding columns makes your data “wider” by adding more variables about the same observations",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Simple Wrangling 101</span>"
+    ]
+  },
+  {
+    "objectID": "EndpointR_dos_Donts.html",
+    "href": "EndpointR_dos_Donts.html",
+    "title": "EndpointR Dos and Don’ts",
+    "section": "",
+    "text": "Introduction\nThis document covers some dos and don’ts of accessing LLMs through EndpointR at SAMY. LLMs are powerful tools, but they’re not always the right tool for every job. I’d consider them as expensive consultants - great for complex reasoning tasks, but overkill for things like simple pattern matching.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>EndpointR Dos and Don'ts</span>"
+    ]
+  },
+  {
+    "objectID": "EndpointR_dos_Donts.html#classify-data-into-pre-defined-categories",
+    "href": "EndpointR_dos_Donts.html#classify-data-into-pre-defined-categories",
+    "title": "EndpointR Dos and Don’ts",
+    "section": "Classify data into pre-defined categories",
+    "text": "Classify data into pre-defined categories\nWhen you already know what categories you’re looking for:\n\nA client launches a new smartphone and wants mentions classified into categories like price, design, or battery life to see what people are talking about most.\n\n\n\n\n\n\n\nAlways link to client need\n\n\n\n\n\nNote these pre-defined categories do not need to come from the client directly, they can be from SAMY desk research- but they should be run by the client first to make sure they are suitable for what the client wants/expects.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>EndpointR Dos and Don'ts</span>"
+    ]
+  },
+  {
+    "objectID": "EndpointR_dos_Donts.html#the-task-requires-deep-language-understanding",
+    "href": "EndpointR_dos_Donts.html#the-task-requires-deep-language-understanding",
+    "title": "EndpointR Dos and Don’ts",
+    "section": "The task requires deep language understanding",
+    "text": "The task requires deep language understanding\nSometimes we need to grasp nuances, context, and semantics in human language. This could be more “difficult” research asks, such as identifying brand love drivers, indicators of churn etc\n\n\n\n\n\n\nGet a proper definition!\n\n\n\n\n\nIt is important to get the definition of a phenomena of interest from a client. How one client defines something like “Brand Love” may be different to how a different client defines it. This is especially important if the phenomena of interest we are measuring is client specific jargon.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>EndpointR Dos and Don'ts</span>"
+    ]
+  },
+  {
+    "objectID": "EndpointR_dos_Donts.html#footnotes",
+    "href": "EndpointR_dos_Donts.html#footnotes",
+    "title": "EndpointR Dos and Don’ts",
+    "section": "",
+    "text": "In statistics, terms like confidence, probability, and likelihood all have specific definitions. Here, I’m using them in the “general everyday usage” meaning, as that’s what is likely to come from a client.↩︎",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>EndpointR Dos and Don'ts</span>"
+    ]
+  }
+]

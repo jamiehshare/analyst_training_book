@@ -1,0 +1,100 @@
+---
+title: "Learning R"
+format: html
+---
+
+The Data Science team, whilst being well-versed in R and coding, unfortunately do not have the time or resources to be teachers of R. Thankfully, there are many wonderful resources online for learning or to upskill yourself in R.
+
+However, that is not to say that we cannot help you if you become stuck with anything R related. This is especially relevant with our own analytical suite that we have developed- you won't be able to find much help online because no one else can use it! 
+
+To get started, we strongly recommend checking out [the RStudio Education platform](https://education.rstudio.com/learn/beginner/), which provides 6 good options for beginning to learn R, based on your background and interests.
+
+:::{.callout-important collapse="false"}
+## No quick wins
+
+Like with any skill, there are no real shortcuts available when learning R. You will need to set aside time and effort to learn and improve. 
+
+Whilst there are certain skills that are more suited to advanced R users, getting your foot in the door of R can feel daunting and is a reasonably steep learning curve. However, once you have learnt the basics, and provided you keep up to speed with the skills you have learnt, you will be flying in confidence.
+:::
+
+# SAMY Syllabus
+
+The data science team has put together this suggested curriculum for those who want to upskill their R skills. 
+
+This is by no means an exhaustive list, and these are purposely vague in that not one single course will cover all of these, and they are skills that can and should be honed over time and through experience. Whilst not all of these skills will be needed day to day (our suite abstracts away a lot of the core R functionality to help lower the barrier to entry), having knowledge of what is on this list will help you greatly going forward in your career.
+
+> Target Audience: Junior Data Scientists, Insights Analysts, and technical management who want to to upskill on the foundational technical skills of data analysis. 
+
+## Core Skills
+
+### Foundation Level 
+
+- **Development Environment**
+  - IDEs (Rstudio setup and familiarity)
+  - Project-centric workflow
+  - Packages & Libraries (installation, using)
+  
+- **Programming Basics**
+  - Learning from documentation / how to get help
+  - Variables
+  - Arithmetic operators
+  - Data Frames, Lists, Vectors
+  
+- **Getting Data In/Out**
+  - Reading & Writing files - `.xslsx`, `.csv`
+  - Filesystem basics
+  
+### Functional Level 
+
+- **Programming with Data**
+  - Wrangling basics (reshaping, tidying)
+  - Aggregation - group summary statistics
+  - Basic data cleaning
+  - Dates and times
+
+- **Statistics & Visualisation**
+  - Descriptive statistics
+  - Distributions
+  - Elementary plots using `ggplot2` - line, bars, scatter etc
+
+- **Our tools**
+  - SHARE/SAMY packages (core functionality)
+
+### Proficient level
+
+- **Communication**
+  - Markdown (markdown, RMarkdown, Quarto)
+  - Literature programming (Quarto notebooks)
+  - Enhanced visualisation techniques (theming, styling in `ggplot2`)
+- **Advanced topics**
+  - Basic modelling
+  - Databases and SQL 
+  - Version control (git, github)
+  - Working with big(ish) data - Arrow/Parquet, DuckDB, `walk` vs `map`
+
+# Additional resources
+
+## Videos
+- [NHS-R Community YouTube](https://www.youtube.com/@NHSRCommunity)
+	- [NHS-R Intro to R and RStudio](https://www.youtube.com/watch?v=dS91HzZLD_c)
+- [Julia Silge YouTube](https://www.youtube.com/c/JuliaSilge)
+- [David Robinson YouTube](https://www.youtube.com/@safe4democracy/videos) 
+
+## Books
+- [Hands-on Programming in R](https://rstudio-education.github.io/hopr/) #programming
+- [R For Data Science (R4DS)](https://r4ds.had.co.nz/) 
+- [TidyText](https://www.tidytextmining.com/) 
+- [What they Forgot to Teach you about R (WTF) Book](https://rstats.wtf/)
+
+## Websites
+- [R-Graph Gallery](https://r-graph-gallery.com/) 
+- [R Bloggers](https://www.r-bloggers.com/)
+- [Capture Visualisation Cookbook](https://jamiehshare.github.io/capture_cookbook/) 
+- [Share Data Science Handbook](https://jamiehshare.github.io/ds_share_handbook/) 
+
+
+## Packages & Libraries
+- [dplyr](https://dplyr.tidyverse.org/)
+- [tidyr](https://tidyr.tidyverse.org/)
+- [purrr](https://purrr.tidyverse.org/)
+- [ggplot2](https://ggplot2.tidyverse.org/)

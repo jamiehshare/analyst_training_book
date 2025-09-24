@@ -1,0 +1,51 @@
+project:
+  type: book
+
+book:
+  title: "DS&RI Resources"
+  author: "SAMY Data Science"
+  chapters:
+    - index.qmd
+    - curriculum.qmd
+    - analyst_training_materials.qmd
+    - EndpointR_dos_Donts.qmd
+
+bibliography: references.bib
+
+execute:
+  warning: false
+  message: false
+  eval: true
+  echo: true
+  include: true
+  execute-dir: project
+  cache: true
+
+code-annotations: select
+
+format:
+  html:
+    theme: [cosmo, custom.scss]
+    code-copy: true
+    code-block-bg: "#FFFFFF"
+    code-tools: true
+    code-fold: true
+    code-overflow: wrap
+    embed-resources: true
+    fig-align: center
+    highlight-style: tango
+    link-external-icon: true
+    link-external-newwindow: true
+    number-sections: true
+    lightbox: true
+    toc: true
+    toc-depth: 3
+    toc-expand: true
+    toc-location: right
+    number-depth: 0
+
+brand:
+  _brand.yml
+
+
+

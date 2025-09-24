@@ -1,0 +1,163 @@
+---
+title: "Simple Wrangling 101"
+format: 
+  html:
+    code-fold: show
+    number-sections: false
+---
+
+```{r}
+#| echo: false
+#| message: false
+library(tidyverse)
+library(readxl)
+```
+
+# Introduction
+
+This document will show at a high level some common code that is useful for managing and wrangling data within RStudio.
+
+For reference, we will assume that the data files are saved as Excel files (however we actually **highly recommend** saving social listening exports as CSVs).
+
+# Load in data
+
+### Read in individual file:
+
+```{r}
+#| eval: false
+
+library(tidyverse)
+library(readxl)
+
+my_data <- read_excel("./PATH_TO_DATA/name_of_excel_file.xlsx")
+
+## or you may have a csv
+
+my_data <- read_csv("./PATH_TO_DATA/name_of_csv_file.csv")
+```
+
+### Read in multiple files at once:
+
+:::{.callout-tip collapse="true"}
+## Slack Overflow already answers this question
+
+Check it out [here](https://slack-overflow-help.netlify.app/post/2022-05-20-reading_multiple_files/reading-in-multiple-data-files-at-once/)
+:::
+
+When you have multiple files with the same structure (same columns) that need combining, you can read them all in at once rather than doing it manually one by one. This is the case when we read in multiple exported files from the same social listening query.
+
+The logic is straightforward: get a list of all the file paths, read each file, then stack them together into one dataset.
+
+#### Step 1: Get the file paths
+
+```{r}
+directory_path <- ("~/Google Drive/Shared drives/SC -  Capture Intelligence/US Projects/Microsoft/829 - Microsoft Perceptions - Peak & Pits/Data/Copilot Data/Copilot All Up Data/")
+
+paths <- list.files(path = directory_path, full.names = TRUE, recursive = TRUE, all.files = TRUE)
+```
+
+:::{.callout-tip collapse="true"}
+## The `list.files()` function
+
+The recursive = TRUE argument means R will look inside any subfolders too. If your files are all in one folder, you might want recursive = FALSE instead to be safe
+:::
+
+#### Step 2: Read all the files
+
+```{r}
+all_files <- map(paths, read_excel)
+```
+
+The `map()` function applies the same operation to each item in a list. Here, it's applying `read_excel()` to each file path, reading all your files in one go. Think of it as a more efficient way of writing multiple `read_excel()` commands.
+
+#### Step 3: Stack them together
+
+```{r}
+raw_df <- all_files %>% 
+  reduce(bind_rows)
+```
+
+At this point, all_files contains all your data, but as separate datasets in a list. The `reduce() `function combines them using `bind_rows()`, which stacks datasets on top of each other (assuming they have the same column structure).
+
+# Joining datasets
+
+Joining is used when you have two datasets that share a common identifier[s] and we want to combine information from both. This is most commonly something like `universal_message_id`. If you are familiar with SQL, these work very similarly to SQL joins.
+
+This can broadly be considered as "adding extra columns to our existing data", and in some special situations also leads to increasing the number of rows too.
+
+A common example of using this in our work is when we have social posts from Sprinklr in one dataframe, and then the scores/results of a model (say our Spam classifier model) in another dataframe, and we want to append these spam classification scores to the data from the Sprinklr export.
+
+There are few different flavours of joins, and I think this resource by [Gauden Buie is absolutely brilliant in explaining how we can understand what they do](https://github.com/gadenbuie/tidyexplain) - read it! I have unashamedly adapted the below from his document
+
+### Left Join - Keep everything from the main dataset
+
+> All rows from `x` where there are matching values in `y`, and all columns from `x` and `y`.
+
+A left join keeps all rows from your main dataset and adds matching information from the second dataset. If there's no match, you'll get NA values. This is the most common join - use it when you want to enrich your main dataset without losing any of your original data.
+
+![](images/left-join.gif)
+```{r}
+#| eval: false
+combined_data <- main_dataset %>% 
+  left_join(additional_data, by = "shared_column")
+```
+
+
+### Full Join - Keep everything from both datasets
+
+> All rows and all columns from both `x` and `y`. Where there are not matching values, returns NA for the one missing.
+
+A full join keeps all rows from both datasets, filling in NA where there are no matches. Use this when both datasets are equally important and you don't want to lose information from either.
+
+![](images/full-join_2.gif)
+
+```{r}
+#| eval: false
+combined_data <- dataset_a %>% 
+  full_join(dataset_b, by = "shared_column")
+```
+
+:::{.callout-tip collapse="true"}
+## The joining column
+
+The `by = "column_name"` tells R which column to use for matching. If the columns have different names, use `by = c("col_a" = "col_b")`.
+:::
+
+# Combining datasets (stacking and side-by-side)
+
+Combining is different from joining - it's about physically putting datasets together without needing a shared identifier.
+
+### Stacking datasets (adding rows)
+
+Use this when you have the same type of data from different sources that you want in one dataset:
+
+```{r}
+#| eval: false
+stacked_data <- bind_rows(dataset_a, dataset_b, dataset_c)
+```
+:::{.callout-warning}
+## Beware of duplicates
+
+This does not consider duplicates though- so if you have the same post in multiple datasets you will end up with multiple instances of this data point! 
+:::
+
+### Side-by-side datasets (adding columns)
+
+Use this when you have different information about the same observations, in the same order:
+
+```{r}
+#| eval: false
+wider_data <- bind_cols(dataset_a, dataset_b)
+```
+
+:::{.callout-warning}
+## Be careful with bind_cols()
+
+This assumes the rows are in exactly the same order in both datasets. If they're not, your data will be mismatched! Usually safer to use a join instead.
+:::
+
+# The key difference:
+
+* Joining makes your data "fuller" by adding related information based on shared identifiers
+* Binding rows makes your data "longer" by adding more observations of the same type
+* Binding columns makes your data "wider" by adding more variables about the same observations
