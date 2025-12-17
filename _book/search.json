@@ -14,7 +14,7 @@
     "href": "curriculum.html",
     "title": "2  Learning R",
     "section": "",
-    "text": "3 SAMY Syllabus\nThe Data Science team, whilst being well-versed in R and coding, unfortunately do not have the time or resources to be teachers of R. Thankfully, there are many wonderful resources online for learning or to upskill yourself in R.\nHowever, that is not to say that we cannot help you if you become stuck with anything R related. This is especially relevant with our own analytical suite that we have developed- you won’t be able to find much help online because no one else can use it!\nTo get started, we strongly recommend checking out the RStudio Education platform, which provides 6 good options for beginning to learn R, based on your background and interests.\nThe data science team has put together this suggested curriculum for those who want to upskill their R skills.\nThis is by no means an exhaustive list, and these are purposely vague in that not one single course will cover all of these, and they are skills that can and should be honed over time and through experience. Whilst not all of these skills will be needed day to day (our suite abstracts away a lot of the core R functionality to help lower the barrier to entry), having knowledge of what is on this list will help you greatly going forward in your career.",
+    "text": "SAMY Syllabus\nThe Data Science team, whilst being well-versed in R and coding, unfortunately do not have the time or resources to be teachers of R. Thankfully, there are many wonderful resources online for learning or to upskill yourself in R.\nHowever, that is not to say that we cannot help you if you become stuck with anything R related. This is especially relevant with our own analytical suite that we have developed- you won’t be able to find much help online because no one else can use it!\nTo get started, we strongly recommend checking out the RStudio Education platform, which provides 6 good options for beginning to learn R, based on your background and interests.\nThe data science team has put together this suggested curriculum for those who want to upskill their R skills.\nThis is by no means an exhaustive list, and these are purposely vague in that not one single course will cover all of these, and they are skills that can and should be honed over time and through experience. Whilst not all of these skills will be needed day to day (our suite abstracts away a lot of the core R functionality to help lower the barrier to entry), having knowledge of what is on this list will help you greatly going forward in your career.",
     "crumbs": [
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Learning R</span>"
     ]
@@ -23,8 +23,8 @@
     "objectID": "curriculum.html#core-skills",
     "href": "curriculum.html#core-skills",
     "title": "2  Learning R",
-    "section": "3.1 Core Skills",
-    "text": "3.1 Core Skills\n\n3.1.1 Foundation Level\n\nDevelopment Environment\n\nIDEs (Rstudio setup and familiarity)\nProject-centric workflow\nPackages & Libraries (installation, using)\n\nProgramming Basics\n\nLearning from documentation / how to get help\nVariables\nArithmetic operators\nData Frames, Lists, Vectors\n\nGetting Data In/Out\n\nReading & Writing files - .xslsx, .csv\nFilesystem basics\n\n\n\n\n3.1.2 Functional Level\n\nProgramming with Data\n\nWrangling basics (reshaping, tidying)\nAggregation - group summary statistics\nBasic data cleaning\nDates and times\n\nStatistics & Visualisation\n\nDescriptive statistics\nDistributions\nElementary plots using ggplot2 - line, bars, scatter etc\n\nOur tools\n\nSHARE/SAMY packages (core functionality)\n\n\n\n\n3.1.3 Proficient level\n\nCommunication\n\nMarkdown (markdown, RMarkdown, Quarto)\nLiterature programming (Quarto notebooks)\nEnhanced visualisation techniques (theming, styling in ggplot2)\n\nAdvanced topics\n\nBasic modelling\nDatabases and SQL\nVersion control (git, github)\nWorking with big(ish) data - Arrow/Parquet, DuckDB, walk vs map",
+    "section": "Core Skills",
+    "text": "Core Skills\n\nFoundation Level\n\nDevelopment Environment\n\nIDEs (Rstudio setup and familiarity)\nProject-centric workflow\nPackages & Libraries (installation, using)\n\nProgramming Basics\n\nLearning from documentation / how to get help\nVariables\nArithmetic operators\nData Frames, Lists, Vectors\n\nGetting Data In/Out\n\nReading & Writing files - .xslsx, .csv\nFilesystem basics\n\n\n\n\nFunctional Level\n\nProgramming with Data\n\nWrangling basics (reshaping, tidying)\nAggregation - group summary statistics\nBasic data cleaning\nDates and times\n\nStatistics & Visualisation\n\nDescriptive statistics\nDistributions\nElementary plots using ggplot2 - line, bars, scatter etc\n\nOur tools\n\nSHARE/SAMY packages (core functionality)\n\n\n\n\nProficient level\n\nCommunication\n\nMarkdown (markdown, RMarkdown, Quarto)\nLiterature programming (Quarto notebooks)\nEnhanced visualisation techniques (theming, styling in ggplot2)\n\nAdvanced topics\n\nBasic modelling\nDatabases and SQL\nVersion control (git, github)\nWorking with big(ish) data - Arrow/Parquet, DuckDB, walk vs map",
     "crumbs": [
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Learning R</span>"
     ]
@@ -33,8 +33,8 @@
     "objectID": "curriculum.html#videos",
     "href": "curriculum.html#videos",
     "title": "2  Learning R",
-    "section": "4.1 Videos",
-    "text": "4.1 Videos\n\nNHS-R Community YouTube\n\nNHS-R Intro to R and RStudio\n\nJulia Silge YouTube\nDavid Robinson YouTube",
+    "section": "Videos",
+    "text": "Videos\n\nNHS-R Community YouTube\n\nNHS-R Intro to R and RStudio\n\nJulia Silge YouTube\nDavid Robinson YouTube",
     "crumbs": [
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Learning R</span>"
     ]
@@ -43,8 +43,8 @@
     "objectID": "curriculum.html#books",
     "href": "curriculum.html#books",
     "title": "2  Learning R",
-    "section": "4.2 Books",
-    "text": "4.2 Books\n\nHands-on Programming in R #programming\nR For Data Science (R4DS)\nTidyText\nWhat they Forgot to Teach you about R (WTF) Book",
+    "section": "Books",
+    "text": "Books\n\nHands-on Programming in R #programming\nR For Data Science (R4DS)\nTidyText\nWhat they Forgot to Teach you about R (WTF) Book",
     "crumbs": [
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Learning R</span>"
     ]
@@ -53,8 +53,8 @@
     "objectID": "curriculum.html#websites",
     "href": "curriculum.html#websites",
     "title": "2  Learning R",
-    "section": "4.3 Websites",
-    "text": "4.3 Websites\n\nR-Graph Gallery\nR Bloggers\nCapture Visualisation Cookbook\nShare Data Science Handbook",
+    "section": "Websites",
+    "text": "Websites\n\nR-Graph Gallery\nR Bloggers\nCapture Visualisation Cookbook\nShare Data Science Handbook",
     "crumbs": [
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Learning R</span>"
     ]
@@ -63,8 +63,8 @@
     "objectID": "curriculum.html#packages-libraries",
     "href": "curriculum.html#packages-libraries",
     "title": "2  Learning R",
-    "section": "4.4 Packages & Libraries",
-    "text": "4.4 Packages & Libraries\n\ndplyr\ntidyr\npurrr\nggplot2",
+    "section": "Packages & Libraries",
+    "text": "Packages & Libraries\n\ndplyr\ntidyr\npurrr\nggplot2",
     "crumbs": [
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Learning R</span>"
     ]

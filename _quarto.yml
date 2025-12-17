@@ -33,7 +33,7 @@ format:
     code-tools: true
     code-fold: true
     code-overflow: wrap
-    embed-resources: true
+    # embed-resources: true
     fig-align: center
     highlight-style: tango
     link-external-icon: true
