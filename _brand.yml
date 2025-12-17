@@ -71,6 +71,6 @@ typography:
     decoration: underline
 
 logo:
-  small: samy_isotype.png
-  medium: samy_logotype.png
-  large: samy_logotype.png
+  small: /images/samy_isotype.png
+  medium: /images/samy_logotype.png
+  large: /images/samy_logotype.png

@@ -23,6 +23,11 @@ $callout-color-important: $samy-pink;
   border-left: 4px solid $samy-peach !important;
 }
 
+/* Style for callout-note blocks */
+.callout .callout-body {
+  background-color: #ffffff;
+}
+
 blockquote,
  .blockquote {
   background-color: white;
@@ -79,4 +84,24 @@ blockquote,
   font-family: "Merriweather", serif !important;
   font-weight: 600; /* Matches the weight defined in your _brand.yml */
   font-size: 1.4rem; /* Optional: adjusts size to look good */
+}
+
+/*-- scss:rules --*/
+
+/* Sidebar book title - should match headings */
+.sidebar-title {
+  font-family: "Merriweather", serif !important;
+  font-weight: 600 !important;
+}
+
+/* Sidebar chapter links - should match base body text */
+.sidebar-navigation .chapter-number,
+.sidebar-navigation .chapter-title {
+  font-family: "Lato", sans-serif !important;
+  font-weight: 300 !important;
+}
+
+/* Active chapter should be slightly bolder for visibility */
+.sidebar-navigation .active .chapter-title {
+  font-weight: 400 !important;
 }
