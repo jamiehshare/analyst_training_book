@@ -30,6 +30,7 @@ jobs:
     env:
       PROTECTED_DIR: _book
       PASSWORD: ${{ secrets.WEB_PASSWORD }}
+      REMEMBER_DAYS: 30  # number of days to remember password
     steps:
       - name: Check PASSWORD variable
         run: |
